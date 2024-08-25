@@ -22,8 +22,8 @@ public class CaesarCipher {
 
     public static String encrypt(String text, int shiftParameter) {
         char[] textCharArray = text.toCharArray();
-        shiftParameterChoice(shiftParameter);
-        askUserForText(text);
+        shiftParameterChoice();
+        askUserForText();
 
         for (int i = 0; i < textCharArray.length; i++) {
             textCharArray[i] = (char) (textCharArray[i] + shiftParameter - 1);
@@ -35,8 +35,8 @@ public class CaesarCipher {
 
     public static String decrypt(String text, int shiftParameter) {
         char[] textCharArray = text.toCharArray();
-        shiftParameterChoice(shiftParameter);
-        askUserForText(text);
+        shiftParameterChoice();
+        askUserForText();
 
         for (int i = 0; i < textCharArray.length; i++) {
             textCharArray[i] = (char) (textCharArray[i] - shiftParameter + 1);
@@ -46,26 +46,25 @@ public class CaesarCipher {
         return decryptedText;
     }
 
-    public static int shiftParameterChoice(int key) {
+    public static int shiftParameterChoice() {
         Scanner shiftParameterScanner = new Scanner(System.in);
 
         System.out.println("Podaj parametr przesunięcia");
-        key = shiftParameterScanner.nextInt();
-        CaesarCipher.shiftParameter = key;
+        CaesarCipher.shiftParameter = shiftParameterScanner.nextInt();
         shiftParameterScanner.close();
 
-        return key;
+        return CaesarCipher.shiftParameter;
     }
 
-    public static String askUserForText(String text) {
+    public static String askUserForText() {
         Scanner textScanner = new Scanner(System.in);
 
         System.out.println("Podaj tekst");
-        text = textScanner.nextLine();
-        CaesarCipher.text = text;
+        CaesarCipher.text = textScanner.nextLine();
+
         textScanner.close();
 
-        return text;
+        return CaesarCipher.text;
     }
 
 }
