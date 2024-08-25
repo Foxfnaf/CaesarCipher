@@ -3,9 +3,8 @@ package edu.foxyfnaf;
 import java.util.Scanner;
 
 public class CaesarCipher {
-
-    private static String TEXT = "";
-    private static int SHIFT_PARAMETER = 0;
+    private static String text = "";
+    private static int shiftParameter = 0;
 
     public static String modeChoice() {
         Scanner userAnswerScanner = new Scanner(System.in);
@@ -13,34 +12,34 @@ public class CaesarCipher {
         String userAnswwer = userAnswerScanner.nextLine();
 
         switch (userAnswwer) {
-            case "szyfrowanie" -> encrypt(TEXT, SHIFT_PARAMETER);
-            case "odszyfrowanie" -> decrypt(TEXT, SHIFT_PARAMETER);
+            case "szyfrowanie" -> encrypt(text, shiftParameter);
+            case "odszyfrowanie" -> decrypt(text, shiftParameter);
         }
         userAnswerScanner.close();
 
         return userAnswwer;
     }
 
-    public static String encrypt(String TEXT, int SHIFT_PARAMETER) {
-        char[] textCharArray = TEXT.toCharArray();
-        shiftParameterChoice(SHIFT_PARAMETER);
-        askUserForText(TEXT);
+    public static String encrypt(String text, int shiftParameter) {
+        char[] textCharArray = text.toCharArray();
+        shiftParameterChoice(shiftParameter);
+        askUserForText(text);
 
         for (int i = 0; i < textCharArray.length; i++) {
-            textCharArray[i] = (char) (textCharArray[i] + SHIFT_PARAMETER - 1);
+            textCharArray[i] = (char) (textCharArray[i] + shiftParameter - 1);
         }
         String encryptedText = String.valueOf(textCharArray);
         System.out.println(encryptedText);
         return encryptedText;
     }
 
-    public static String decrypt(String TEXT, int SHIFT_PARAMETER) {
-        char[] textCharArray = TEXT.toCharArray();
-        shiftParameterChoice(SHIFT_PARAMETER);
-        askUserForText(TEXT);
+    public static String decrypt(String text, int shiftParameter) {
+        char[] textCharArray = text.toCharArray();
+        shiftParameterChoice(shiftParameter);
+        askUserForText(text);
 
         for (int i = 0; i < textCharArray.length; i++) {
-            textCharArray[i] = (char) (textCharArray[i] - SHIFT_PARAMETER + 1);
+            textCharArray[i] = (char) (textCharArray[i] - shiftParameter + 1);
         }
         String decryptedText = String.valueOf(textCharArray);
         System.out.println(decryptedText);
@@ -52,7 +51,7 @@ public class CaesarCipher {
 
         System.out.println("Podaj parametr przesunięcia");
         key = shiftParameterScanner.nextInt();
-        CaesarCipher.SHIFT_PARAMETER = key;
+        CaesarCipher.shiftParameter = key;
         shiftParameterScanner.close();
 
         return key;
@@ -63,7 +62,7 @@ public class CaesarCipher {
 
         System.out.println("Podaj parametr przesunięcia");
         text = textScanner.nextLine();
-        CaesarCipher.TEXT = text;
+        CaesarCipher.text = text;
         textScanner.close();
 
         return text;
