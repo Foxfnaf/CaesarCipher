@@ -49,7 +49,7 @@ public class CaesarCipher {
     public static int shiftParameterChoice(int key) {
         Scanner shiftParameterScanner = new Scanner(System.in);
 
-        System.out.println("Podaj tekst");
+        System.out.println("Podaj parametr przesunięcia");
         key = shiftParameterScanner.nextInt();
         CaesarCipher.shiftParameter = key;
         shiftParameterScanner.close();
@@ -60,7 +60,7 @@ public class CaesarCipher {
     public static String askUserForText(String text) {
         Scanner textScanner = new Scanner(System.in);
 
-        System.out.println("Podaj parametr przesunięcia");
+        System.out.println("Podaj tekst");
         text = textScanner.nextLine();
         CaesarCipher.text = text;
         textScanner.close();
