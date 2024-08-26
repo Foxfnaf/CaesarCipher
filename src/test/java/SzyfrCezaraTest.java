@@ -5,14 +5,16 @@ import static org.junit.Assert.assertEquals;
 
 public class SzyfrCezaraTest {
     //If you want to run the test, first comment out the calls to askUserForText and shiftParameterChoice in the encrypt and decrypt methods.
+    //Remember to assign the value to the text variable
     @Test
     public void givenPlainTextAndKey_whenEncrypting_thenReturnsEncryptedText() {
-
-        assertEquals("c", CaesarCipher.encrypt("a", 3));
+        CaesarCipher caesarCipher = new CaesarCipher();
+        assertEquals("c", caesarCipher.encrypt(3));
     }
 
     @Test
     public void decrypting() {
-        assertEquals("a", CaesarCipher.decrypt("c", 3));
+        CaesarCipher caesarCipher = new CaesarCipher();
+        assertEquals("a", caesarCipher.decrypt( 3));
     }
 }
