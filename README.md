@@ -1,4 +1,5 @@
 
 # CaesarCipher
 
-> Designed to enhance Java skills
+> Encryption and decryption machine.  
+> Made to improve Java skills.
